@@ -11,7 +11,6 @@ type FormInputProps = {
 
 export default function FormInput({setFormCompleted, email, setEmail}: FormInputProps){
     const [isError, setIsError] = useState(false);
-    const [isMobile, setIsMobile] = useState(window.innerWidth < 768);
 
     const validateEmail = (email: string) => {
         return String(email)
@@ -58,7 +57,7 @@ export default function FormInput({setFormCompleted, email, setEmail}: FormInput
                 </button>
             </div>
             <div className='md:w-1/2 h-full w-screen md:order-2'>
-                <img className='w-full h-full' src={isMobile ? heroImageMobile : heroImageDekstop} alt="hero-image"/>
+                <img className='w-full h-full' src={window.innerWidth < 768 ? heroImageMobile : heroImageDekstop} alt="hero-image"/>
             </div>
         </div>
     )
